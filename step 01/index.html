@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  </head>
+  <body></body>
+  <script>
+    // // web socket을 이용한 연결처리
+    // let ws = new WebSocket("ws://localhost:8000");
+    // console.log(ws);
+
+    // ws.onopen = (event) => {
+    //   ws.send("Hello! onopen!");
+    // };
+
+    // ws.onmessage = (event) => {
+    //   console.log(event);
+    // };
+
+    // socket.io를 이용한 연결 처리
+
+    const socket = io("http://localhost:8000/");
+    socket.on("connect", () => {
+      socket.on("welcome", (message) => {
+        console.log(message);
+      });
+      socket.emit("message", { data: "Hello!" });
+    });
+  </script>
+</html>
