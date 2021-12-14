@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <form id="message-form">
+            <div class="col-sm-10">
+              <input
+                type="text"
+                id="user-message"
+                placeholder="Enter your message"
+              />
+            </div>
+            <div class="col-sm-2">
+              <button type="submit" class="btn btn-primary">Send!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <ul id="messages"></ul>
+    </div>
+  </body>
+  <!-- <script src="./main.js"></script> -->
+  <script src="./main2.js"></script>
+</html>
