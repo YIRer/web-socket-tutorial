@@ -20,7 +20,8 @@ io.on("connection", (socket) => {
 });
 
 namespaces.forEach((namespace) => {
-  io.of(namespace.endpoint).on("connection", (socket) => {
-    console.log(`${socket.id} has join ${namespace.endpoint}`);
+  io.of(namespace.endpoint).on("connection", (nsSocket) => {
+    console.log(`${nsSocket.id} has join ${namespace.endpoint}`);
+    nsSocket.emit("nsRoomLoad", namespaces[0].rooms);
   });
 });
