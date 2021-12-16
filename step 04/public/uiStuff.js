@@ -1,27 +1,36 @@
-let wHeight = $(window).height();
-let wWidth = $(window).width();
-let player = {} //This is all things "this" player
+let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
+let orbs = [];
+let players = [];
 
-let canvas = document.querySelector('#the-canvas');
-let context = canvas.getContext('2d');
-canvas.width = wWidth;
-canvas.height = wHeight;
+const player = {};
 
-$(window).load(()=>{
-    $('#loginModal').modal('show')
-})
+const canvas = document.getElementById("the-canvas");
+const context = canvas.getContext("2d");
 
-$('.name-form').submit((event)=>{
-    event.preventDefault()
-    // console.log("Submitted!")
-    player.name = document.querySelector('#name-input').value;
-    $('#loginModal').modal('hide');
-    $('#spawnModal').modal('show')
-    document.querySelector('.player-name').innerHTML = player.name
-})
+canvas.width = windowWidth;
+canvas.height = windowHeight;
 
-$('.start-game').click((event)=>{
-    $('.modal').modal('hide');
-    $('.hiddenOnStart').removeAttr('hidden');
+window.onload = function () {
+  $("#loginModal").modal("show");
+  const nameForm = document.querySelector(".name-form");
+
+  nameForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    player.name = document.getElementById("name-input").value;
+    document.querySelector(".player-name").innerHTML = player.name;
+
+    $("#loginModal").modal("hide");
+    $("#spawnModal").modal("show");
+  });
+
+  document.querySelector(".start-game").addEventListener("click", () => {
+    $(".modal").modal("hide");
     init();
-})
+
+    document
+      .querySelectorAll(".hiddenOnStart")
+      .forEach((ele) => ele.removeAttribute("hidden"));
+  });
+};
