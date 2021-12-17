@@ -9,7 +9,6 @@ function init() {
 
 socket.on("initReturn", (data) => {
   orbs = data.orbs;
-
   setInterval(() => {
     socket.emit("tick", {
       xVector: player.xVector,
